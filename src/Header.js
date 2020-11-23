@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 function Header() {
     return (
@@ -8,6 +8,7 @@ function Header() {
                 alt="Problem?"
             />
             <p>Meme Generator</p>
+            
         </header>
     )
 }
