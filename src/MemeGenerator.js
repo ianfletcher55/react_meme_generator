@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 
 class MemeGenerator extends Component {
   constructor() {
@@ -17,13 +18,13 @@ class MemeGenerator extends Component {
     fetch("https://api.imgflip.com/get_memes")
       .then(response => response.json())
       .then(response => {
-        const {memes} = response.data
-        this.setState({allMemeImgs: memes})
+        const { memes } = response.data
+        this.setState({ allMemeImgs: memes })
       })
   }
 
   handleChange(event) {
-    const {name, value} = event.target
+    const { name, value } = event.target
     this.setState({ [name]: value })
   }
 
@@ -34,30 +35,42 @@ class MemeGenerator extends Component {
     this.setState({ image: randMemeImg })
   }
 
+  saveImage(meme) {
+    axios.post('http://localhost:3000/api/memes', meme)
+      .then(response => {
+        console.log(response);
+      })
+  }
+
   render() {
     return (
       <div class="ui container">
         <form className="meme-form" class="ui large form" onSubmit={this.handleSubmit}>
-            <input 
-              type="text"
-              name="topText"
-              placeholder="Top Text"
-              value={this.state.topText}
-              onChange={this.handleChange}
-            />
-            <input 
+          <input
+            type="text"
+            name="topText"
+            placeholder="Top Text"
+            value={this.state.topText}
+            onChange={this.handleChange}
+          />
+          <input
             type="text"
             name="bottomText"
             placeholder="Bottom Text"
             value={this.state.bottomText}
             onChange={this.handleChange}
-            />
+          />
           <button class="ui button">Generate</button>
         </form>
         <div className="meme">
           <img src={this.state.image} alt="" />
           <h2 className="top">{this.state.topText}</h2>
           <h2 className="bottom">{this.state.bottomText}</h2>
+        </div>
+        <div>
+          <button class="ui button" onClick={() => this.saveImage(this.state)}>
+            Save Meme
+          </button>
         </div>
       </div>
     )

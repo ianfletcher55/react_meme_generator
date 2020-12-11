@@ -22,11 +22,11 @@ export default class AllMemes extends React.Component {
   render() {
     console.log('STATE: ', this.state)
     return (
-      <ul>
+      <div class="ui grid container">
         <h1>All Memes</h1>
         { this.state.memes.map(meme =>
-        <Card imageUrl={meme.image} />)}
-      </ul>
+        <Card memeData={meme} />)}
+      </div>
     )
   }
 }

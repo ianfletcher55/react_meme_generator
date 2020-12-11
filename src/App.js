@@ -15,26 +15,26 @@ import {
 function App() {
   return (
     <div>
-    <Router>
-      <Header />
-      <Divider />
-      <Navbar />
-      <Switch>
-        <Route exact path="/">
-          <MemeGenerator />
-        </Route>
-        <Route path="/memes">
-          <AllMemes />
-        </Route>
-        <Route path="/memes1">
-          <MyMemes />
-        </Route>
-      </Switch>
-    </Router>
+      <Router>
+        <Header />
+        <Divider />
+        <Navbar />
+        <Divider />
+        <Switch>
+          <Route exact path="/">
+            <MemeGenerator />
+          </Route>
+          <Route path="/memes">
+            <AllMemes />
+          </Route>
+          <Route path="/memes">
+            <MyMemes />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
-
 
 function MyMemes() {
   return <div>My Memes</div>;

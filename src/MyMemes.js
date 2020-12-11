@@ -3,8 +3,8 @@ import axios from 'axios';
 import Card from './Card';
 
 export default class MyMemes extends React.Component {
-  constructor() { 
-    super();
+  constructor(props) { 
+    super(props);
     this.state = {
       memes: []
     }
@@ -22,11 +22,11 @@ export default class MyMemes extends React.Component {
   render() {
     console.log('STATE: ', this.state)
     return (
-      <ul>
-        <h1>test</h1>
+      <div class="ui grid container">
+        <h1>My Memes</h1>
         { this.state.memes.map(meme =>
-        <Card imageUrl={meme.image} />)}
-      </ul>
+        <Card memeData={meme} />)}
+      </div>
     )
   }
 }
