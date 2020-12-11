@@ -11,40 +11,25 @@ import {
   Link
 } from "react-router-dom";
 
-export default function App() {
+
+function App() {
   return (
     <div>
-      <Header />
       <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Meme Generator</Link>
-              </li>
-              <li>
-                <Link to="/allmemes">All Memes</Link>
-              </li>
-              <li>
-                <Link to="/users">Users</Link>
-              </li>
-            </ul>
-          </nav>
-
-          {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. */}
-          <Switch>
-            <Route path="/allmemes">
-              <About />
-            </Route>
-            <Route path="/users">
-              <Users />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </div>
+        <Header />
+        <Divider />
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <MemeGenerator />
+          </Route>
+          <Route path="/memes">
+            <AllMemes />
+          </Route>
+          <Route path="/memes1">
+            <MyMemes />
+          </Route>
+        </Switch>
       </Router>
     </div>
   );
@@ -111,4 +96,20 @@ function Users() {
 // }
 
 
-// export default App;
+function MyMemes() {
+  return <div>My Memes</div>;
+}
+function SignUp() {
+  return <h2>Sign Up</h2>;
+}
+
+function Login() {
+  return <h2>Login</h2>;
+}
+
+function Logout() {
+  return <h2>Logout</h2>;
+}
+
+
+export default App;

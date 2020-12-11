@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class MemeGenerator extends Component {
   constructor() {
@@ -34,8 +35,11 @@ class MemeGenerator extends Component {
     this.setState({ image: randMemeImg })
   }
 
-  printMeme() {
-    console.log(this.topText);
+  saveImage(meme) {
+    axios.post('http://localhost:3000/api/memes', meme)
+      .then(response => {
+        console.log(response);
+      })
   }
 
   render() {
@@ -64,8 +68,8 @@ class MemeGenerator extends Component {
           <h2 className="bottom">{this.state.bottomText}</h2>
         </div>
         <div>
-          <button onClick={this.printMeme}>
-            print
+          <button onClick={() => this.saveImage(this.state)}>
+            save
           </button>
         </div>
       </div>
