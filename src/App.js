@@ -19,7 +19,6 @@ function App() {
         <Header />
         <Divider />
         <Navbar />
-        <Divider />
         <Switch>
           <Route exact path="/">
             <MemeGenerator />
@@ -27,7 +26,7 @@ function App() {
           <Route path="/memes">
             <AllMemes />
           </Route>
-          <Route path="/memes">
+          <Route path="/memes1">
             <MyMemes />
           </Route>
         </Switch>
@@ -35,6 +34,67 @@ function App() {
     </div>
   );
 }
+
+function Home() {
+  return <MemeGenerator />;
+}
+
+function About() {
+  return <AllMemes />;
+}
+
+function Users() {
+  return <h2>Users</h2>;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from "react-router-dom";
+
+// function App() {
+//   return (
+//     <div>
+//       <Header />
+//       <Divider />
+//       <Navbar />
+//       <Divider />
+//       <MemeGenerator />
+//       <Router>
+//         <Link to="/memes" class="item">All Memes</Link>
+//         <Switch>
+//           <Route path="/memes">
+//             <AllMemes />
+//           </Route>
+//         </Switch>
+//       </Router>
+//     </div>
+
+//   );
+// }
+
 
 function MyMemes() {
   return <div>My Memes</div>;
