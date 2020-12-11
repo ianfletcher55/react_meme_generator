@@ -68,8 +68,8 @@ class MemeGenerator extends Component {
           <h2 className="bottom">{this.state.bottomText}</h2>
         </div>
         <div>
-          <button onClick={() => this.saveImage(this.state)}>
-            save
+          <button class="ui button" onClick={() => this.saveImage(this.state)}>
+            Save Meme
           </button>
         </div>
       </div>
