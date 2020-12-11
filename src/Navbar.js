@@ -1,32 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Link
   } from "react-router-dom";
-// import {Link} from 'react-router';
 
-function Navbar() {
+  export default function Navbar() {
     return (
         <div class="ui container">
             <div class="ui secondary menu">
-                <Router>
                 <Link to="/" class="active item">Home</Link>
-                <Link to={"/memes"} class="item">All Memes</Link>
+                <Link to="/memes" class="item">All Memes</Link>
                 <Link to="/memes1" class="item">My Memes</Link>
                 <div class="right menu">
                     <Link to="/users" class="item">Sign Up</Link>
                     <Link to="/sessions" class="item">Login</Link>
                     <Link to="/sessions" class="item">Logout</Link>
                 </div>
-                </Router>
             </div>
         </div>
     )
 }
 
-function Home() {
+  function Home() {
     return <h2>Home</h2>;
   }
   
@@ -48,6 +45,3 @@ function Home() {
   function Logout() {
     return <h2>Logout</h2>;
   }
-
-
-export default Navbar

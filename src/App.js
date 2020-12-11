@@ -4,7 +4,6 @@ import Navbar from './Navbar';
 import MemeGenerator from './MemeGenerator';
 import Divider from './Divider';
 import AllMemes from './AllMemes';
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,25 +11,44 @@ import {
   Link
 } from "react-router-dom";
 
+
 function App() {
   return (
     <div>
+    <Router>
       <Header />
       <Divider />
       <Navbar />
-      <Divider />
-      <MemeGenerator />
-      <Router>
-        <Link to="/memes" class="item">All Memes</Link>
-        <Switch>
-          <Route path="/memes">
-            <AllMemes />
-          </Route>
-        </Switch>
-      </Router>
+      <Switch>
+        <Route exact path="/">
+          <MemeGenerator />
+        </Route>
+        <Route path="/memes">
+          <AllMemes />
+        </Route>
+        <Route path="/memes1">
+          <MyMemes />
+        </Route>
+      </Switch>
+    </Router>
     </div>
-
   );
+}
+
+
+function MyMemes() {
+  return <div>My Memes</div>;
+}
+function SignUp() {
+  return <h2>Sign Up</h2>;
+}
+
+function Login() {
+  return <h2>Login</h2>;
+}
+
+function Logout() {
+  return <h2>Logout</h2>;
 }
 
 
